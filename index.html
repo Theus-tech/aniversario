@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário, Artur! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffe6eb;
+            font-family: 'Pacifico', cursive;
+            text-align: center;
+            color: #d6336c;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        .player {
+            margin: 20px 0;
+        }
+        .timer {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .carousel {
+            width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+        .message {
+            font-size: 20px;
+            background: #ff4d79;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feliz Aniversário, meu amor! ❤️</h1>
+    
+    <!-- Player de áudio -->
+    <div class="player">
+        <audio controls autoplay>
+            <source src="../Audio/meu-mel.mp3" type="audio/mpeg">
+        </audio>
+        
+
+    </div>
+    
+    <!-- Contador de tempo -->
+    <div class="timer" id="timer"></div>
+    
+    <!-- Carrossel de fotos -->
+    <div class="carousel">
+        <img src="../IMG/imagem1.jpg" class="slide" style="display: block;">
+        <img src="../IMG/imagem2.jpg" class="slide">
+        <img src="../IMG/imagem3.jpg" class="slide">
+        <img src="../IMG/imagem4.jpg" class="slide">
+        <img src="../IMG/imagem5.jpg" class="slide">
+        <img src="../IMG/imagem6.jpg" class="slide">
+        <img src="../IMG/imagem7.jpg" class="slide">
+        <img src="../IMG/imagem8.jpg" class="slide">
+        <img src="../IMG/imagem9.jpg" class="slide">
+        <!-- Adicione mais imagens aqui -->
+    </div>
+    
+    <!-- Mensagem de aniversário -->
+    <div class="message">Feliz aniversário, Artur! Que esse dia seja tão especial quanto você. Te amo muito! ❤️</div>
+    
+    <script>
+        // Contador de tempo
+       // Contador de tempo atualizado
+function atualizarTimer() {
+    const dataInicio = new Date("2024-11-16T20:11:00"); // Primeira mensagem pra ele
+    const agora = new Date();
+    const diferenca = agora - dataInicio;
+
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+    document.getElementById("timer").innerText = `Te amo há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos! ❤️`;
+}
+
+// Atualiza o contador a cada segundo
+atualizarTimer();
+setInterval(atualizarTimer, 
+1000);
+
+        // Carrossel de imagens
+        let index = 0;
+        const slides = document.querySelectorAll(".slide");
+        setInterval(() => {
+            slides[index].style.display = "none";
+            index = (index + 1) % slides.length;
+            slides[index].style.display = "block";
+        }, 3000);
+    </script>
+</body>
+</html>
